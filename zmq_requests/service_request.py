@@ -1,4 +1,4 @@
-import json
+import orjson
 from functools import wraps
 
 from .deserialization import Deserializers
@@ -23,7 +23,7 @@ def service_request(function: callable) -> callable:
         req_socket = args[0].socket
         req_socket.send_string(ServiceRequest(function.__name__, service_args).dumps())
 
-        response = ServiceResponse(**json.loads(req_socket.recv_string()))
+        response = ServiceResponse(**orjson.loads(req_socket.recv_string()))
 
         if response.requestStatus != RequestStatus.SUCCESS: 
             raise Exception(f'Invalid request to service {function.__name__}. {response.serviceOutput}')

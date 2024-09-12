@@ -8,5 +8,6 @@ setup(name='zmq_requests',
       author_email='harimlgc@usp.br',
       packages = ['zmq_requests'],
     install_requires = [
-        'pyzmq']
+        'pyzmq',
+        'orjson']
      )

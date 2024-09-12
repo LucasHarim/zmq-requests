@@ -1,4 +1,4 @@
-import json
+import orjson
 from dataclasses import dataclass
 
 
@@ -15,7 +15,7 @@ class ServiceRequest:
 
     def dumps(self) -> str:
 
-        return json.dumps({'serviceName': self.serviceName, 'serviceArgs': self.serviceArgs})
+        return orjson.dumps({'serviceName': self.serviceName, 'serviceArgs': self.serviceArgs}).decode("utf-8")
 
 @dataclass
 class ServiceResponse:
