@@ -6,6 +6,7 @@ with open('README.md', 'r') as readme:
 
 setup(name='zmq_requests',
       version='0.1.0',
+      url = 'https://github.com/LucasHarim/zmq-requests',
       description='Client requests that mimic bindings',
       long_description = long_desc,
       long_description_content_type = 'text/markdown',
