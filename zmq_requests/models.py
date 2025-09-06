@@ -1,12 +1,10 @@
 import orjson
 from dataclasses import dataclass
 
-
 class RequestStatus:
 
     ERROR = 'ERROR'
     SUCCESS = 'SUCCESS'
-
 
 @dataclass
 class ServiceRequest:

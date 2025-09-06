@@ -1,14 +1,15 @@
 import zmq
 import time
+from functools import wraps
 from random import randint
 
 from zmq_requests import (
     service_request,
     Deserializers)
 
-
 class ClientTest:
 
+       
     def __init__(self, host: str = 'tcp://localhost', port:int = 5555, timeout_ms: int = 5000):
         
         self.host = host
@@ -17,7 +18,7 @@ class ClientTest:
         self.socket = self._context.socket(zmq.REQ)
         self.socket.connect(f'{host}:{port}')
         self.socket.RCVTIMEO = timeout_ms
-
+        
         self._check_connection_with_service()
     
     def _check_connection_with_service(self) -> None:
